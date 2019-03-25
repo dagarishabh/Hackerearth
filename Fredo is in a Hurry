@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+	    long long int n,time,l=0,h,c=0;
+	    cin>>n;
+	    h=n;
+	    int i;
+	    if(n==1||n==2)
+	    cout<<n<<endl;
+	    else
+	    {
+	        while(h-l-1>=l+1)
+	        {
+	           h=h-l-1;
+	           l=l+1;
+	          // cout<<h<<","<<l<<"\n";
+	        }
+	        c=2*(n-l);
+	        //for(i=1;i<=l;i++)
+	        //c+=i;
+	        cout<<c<<endl;
+	                
+	    }
+            
+        
+    }	
+	return 0;
+}
+Language: C++
