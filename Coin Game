@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,i,j,k=0,ans=0;
+        cin>>n;
+        long long int a[n];
+        for(i=0;i<n;i++)
+        {
+            cin>>a[i];
+            while(a[i]%2==0)
+            {
+                a[i]/=2;
+                ans++;
+            }
+        }
+        if(ans%2==0)
+        cout <<"Alan"<< endl;
+        else
+        cout <<"Charlie"<< endl;
+    }
+    return 0;
+}
+Language: C++14
