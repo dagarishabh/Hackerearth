@@ -1,0 +1,117 @@
+#include <bits/stdc++.h>
+using namespace std;
+int power(long long int base,long long int pow,long long int p)
+{
+   long long int res=1;
+   while(pow)
+   {     
+         if (pow%2!=0)  res=(res*base)%p;
+         base=(base*base)%p;
+         pow/=2;
+   }
+   return res%p;
+}
+int main() {
+    int t;
+    cin>>t;
+ 
+    while(t--)
+    {
+        set<long long int> m;
+	    long long int mm=0,rin,r1,r2,s1=1,r,s5,s,p,k=0,z=0,ll=1;
+	    cin>>r>>s>>p;
+	    if(p<1000000)
+	    {
+	        long long int mm=0,r1,s1=1,k=1,z=0;
+	        r1=r;
+ 
+    	    if(r==1)
+	        cout<<s<<endl;
+	        else
+	        {
+	            while(abs(s1-s)%p!=0)
+	            {
+	        
+	                k++;
+	                s1+=r1;
+	                r1*=r;
+	                r1%=p;
+	                s1%=p;
+	        
+	                mm++;
+	            if(k>=p)
+	            {
+	                z=1;
+	                break;
+	            }
+	        }
+	        if(z!=1)
+	        cout<<k<<endl;
+	        else
+	        cout<<-1<<endl;
+	            
+	        }
+	    }
+	    else
+	    {
+	        s=s*(r-1)+1;
+	        s%=p;
+	        if(s==0)
+	        cout<<-1<<endl;
+	        else{
+	        r2=sqrt(p);
+	       
+	        r1=0;
+	        while(r1<=p)
+	        {
+	            s5=power(r,r1,p)%p;
+	            m.insert(s5);
+	            r1+=r2;
+	        }
+ 
+	        s5=power(r,p-1,p)%p;
+	        m.insert(s5);
+	        rin=power(r,p-2,p);
+	  
+ 
+ 
+                fflush(stdout);
+      
+	        while(k<r2)
+	        {
+	            
+ 
+	            if(m.find(max(ll,s))!=m.end())
+	            {
+	                z=1;
+	                break;
+	            }
+	            s=s*rin;
+	            s=s%p;
+	            k++;
+//	            cout<<k<<endl;
+	            
+	        }
+	        
+	        if(z!=1)
+	        cout<<-1<<endl;
+	        else
+	        {
+	            r1=0;
+	            s5=1;
+	            while(s5!=s)
+	            {
+	                s5=power(r,r1,p)%p;
+	                r1+=r2;
+ 
+	            }
+	     
+//	            cout<<k<<endl;
+//	            cout<<r1<<endl;
+	            cout<<k+r1-r2<<endl;
+	        }}
+	    }    
+    }
+	return 0;
+}
+Language: C++
