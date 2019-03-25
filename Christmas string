@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	char a[3001],b[3001];
+	scanf("%s",a);
+	int i,t=0;
+	int n,l=strlen(a),c[l],m;
+	for(i=0;i<l;i++)
+	c[i]=0;
+	scanf("%d",&n);
+	while(n--)
+	{
+	    int k=0;
+	    scanf("%s",b);
+	    if(strlen(b)==l)
+	    for(i=0;a[i]!='\0';i++)
+	    {
+	        
+	        if(a[i]==b[i])
+	        continue;
+	        else if(a[i]=='*')
+	            continue;
+	        
+	            
+	            else 
+	            {
+	                k++;
+	                m=i;
+	            } 
+	        
+	    }
+	    if(k<1)
+	    t++;
+	    else if(k==1)
+	    c[m]++;
+	}
+	int max=0;
+	for(i=0;i<l;i++)
+	{
+	    if(c[i]>max)
+	    max=c[i];
+	}
+	printf("%d\n",t+max);
+	return 0;
+}
+Language: C++
