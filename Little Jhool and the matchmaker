@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	int t;
+	cin>>t;
+	
+	while(t--)
+	{
+	    int n,k;
+	    cin>>n>>k;
+	    char a[n][30],p[30];
+	    
+	    int i,b[n],c[7];
+	    for(i=0;i<n;i++)
+	    {
+	        b[i]=0;
+	        cin>>a[i];
+	        for(int j=0;j<7;j++)
+	        c[j]=0;
+	        for(int j=0;a[i][j]!='\0';j++)
+	        {
+	            if(a[i][j]=='l'||a[i][j]=='L')
+	            c[0]=1;
+	            if(a[i][j]=='i'||a[i][j]=='I')
+	            c[1]=1;
+	            if(a[i][j]=='t'||a[i][j]=='T')
+	            c[2]=1;
+	            if(a[i][j]=='e'||a[i][j]=='E')
+	            c[3]=1;
+	            if(a[i][j]=='j'||a[i][j]=='J')
+	            c[4]=1;
+	            if(a[i][j]=='H'||a[i][j]=='h')
+	            c[5]=1;
+	            if(a[i][j]=='O'||a[i][j]=='o')
+	            c[6]=1;
+	        }
+	        b[i]=c[0]+c[1]+c[2]+c[3]+c[4]+c[5]+c[6];
+	    }
+	    //for(i=0;i<n;i++)
+	    //cout<<a[i]<<" "<<b[i]<<endl;
+	    int j,t;
+	    for(i=0;i<n;i++)
+	    {
+	        for(j=0;j<n-i-1;j++)
+	        {
+	            if(b[j]>b[j+1])
+	            {
+	                t=b[j];
+	                b[j]=b[j+1];
+	                b[j+1]=t;
+	                strcpy(p,a[j]);
+	                strcpy(a[j],a[j+1]);
+	                strcpy(a[j+1],p);
+	                
+	            }
+	        }
+	    }
+	    //for(i=0;i<n;i++)
+	    //cout<<a[i]<<" "<<b[i]<<endl;
+	    for(i=0;i<k;i++)
+	    cout<<a[i]<<" ";
+	    cout<<endl;
+	    
+	}
+	return 0;
+}
+Language: C++
