@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	long long int n,i,j,k;
+	cin>>n;
+	long long int s1=0,s2=0;
+ 
+	
+	if(n%2==0)
+	{
+	    s2=(n*(2+n))/4;
+	    s1=(n*(n+1))/2-s2;
+	    cout<<s1<<" "<<s2<<endl;
+	}
+	else
+	{
+	     s2=((n-1)*(2+n-1))/4;
+	     s1=(n*(n+1))/2-s2;
+	     cout<<s1<<" "<<s2<<endl;
+	}
+	
+	return 0;
+}
+Language: C++
