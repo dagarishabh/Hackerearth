@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+int main(void) {
+	int n,t1;
+	scanf("%d%d",&n,&t1);
+	char a[n][21],s[21];;
+	long long int b[n],i,j,t,r=0,m;
+	for(i=0;i<n;i++)
+	{
+	    scanf("%s%lld",a[i],&b[i]);
+	}
+	for(i=0;i<n;i++)
+	{
+	    for(j=0;j<n-1;j++)
+	    {
+	        if(b[j]<b[j+1])
+	        {
+	            t=b[j];
+	            b[j]=b[j+1];
+	            b[j+1]=t;
+	            strcpy(s,a[j]);
+	            strcpy(a[j],a[j+1]);
+	            strcpy(a[j+1],s);
+	        }
+	        else if(b[j]==b[j+1])
+	        {
+	            if(strcmp(a[j],a[j+1])>0)
+                {
+                    strcpy(s,a[j]);
+                    strcpy(a[j],a[j+1]);
+                    strcpy(a[j+1],s);
+                }
+	        }
+	    }
+	}
+	
+	
+    for(i=0;i<t1;i++)
+    printf("%s\n",a[i]);
+	return 0;
+}
+ 
+Language: C++
