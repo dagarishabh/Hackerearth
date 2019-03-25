@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    
+    int n,q;
+    scanf("%d%d",&n,&q);
+    int i,s=0,m=0,a[n],b[n];
+    for(i=0;i<n;i++)
+    {
+        s=0;
+        scanf("%d",&a[i]);
+        m=a[i];
+        while(m!=0)
+        {
+            m=m/2;
+            s++;
+        }
+        b[i]=s;
+    }
+    while(q--)
+    {
+        int l,r,k=0;
+        scanf("%d%d",&l,&r);
+        for(i=l-1;i<=r-1;i++)
+        {
+            k=k+b[i];
+            
+        }
+        if(k%2!=0)
+        printf("Mishki\n");
+        else
+        printf("Hacker\n");
+    }
+    
+    return 0;
+}
+Language: C++
