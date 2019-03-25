@@ -1,0 +1,57 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <queue>
+#include <map>
+#include <set>
+using namespace std;
+main()
+{
+	queue<int> que;
+	map<int,vector<int>> pcomp;
+	int i,j,x,n,q;
+	char d;
+	cin>>n>>q;
+	vector<int> arr(n);
+	for (int i = 0; i < n; ++i)
+	{
+		scanf("%d",&arr[i]);
+		pcomp[arr[i]].push_back(i);
+		pcomp[arr[i]].push_back(i+n);
+	}
+	for(int i = 0; i < n; ++i)
+	{
+		sort(pcomp[arr[i]].begin(),pcomp[arr[i]].end());
+	}
+	for(j=0;j<q;j++)
+	{
+		cin>>x>>i>>d;
+		if(pcomp.find(i)==pcomp.end())
+		{
+			que.push(-1);
+		}
+		else if(arr[x]==i)
+		{
+			que.push(0);
+		}
+		else if(d=='R')
+		{
+			vector<int>::iterator it=upper_bound(pcomp[i].begin(),pcomp[i].end(),x);
+			int z=*it;
+			que.push(z-x);
+		}
+		else
+		{
+			vector<int>::iterator it=upper_bound(pcomp[i].begin(),pcomp[i].end(),x+n);
+			int loc=it-pcomp[i].begin();
+			int z=pcomp[i][loc-1];
+			que.push(x-z+n);
+		}
+	}
+	while(que.size())
+	{
+		cout<<que.front()<<endl;
+		que.pop();
+	}
+}
+Language: C++14
