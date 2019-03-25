@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	int n;
+	cin>>n;
+	long long int a[n],i,j,k=0,q,b[100001];
+	for(i=0;i<n;i++)
+	cin>>a[i];
+	for(i=0;i<100001;i++)
+	b[i]=0;
+	for(i=0;i<n;i++)
+	{
+	    for(j=1;j*j<a[i];j++)
+	    {
+	        if(a[i]%j==0)
+	        {
+	            b[a[i]/j]++;
+	            b[j]++;
+	        }
+	    }
+	    if(j*j==a[i])
+	    b[j]++;
+	}
+	cin>>q;
+	while(q--)
+	{
+	    cin>>k;
+	    cout<<b[k]<<endl;
+	}
+	return 0;
+}
+Language: C++14
