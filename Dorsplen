@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	long long int k=0,r,g,b;
+	int a1,a2,a3;
+	a1=a2=a3=0;
+	cin>>r>>g>>b;
+	if(r<=b&&r<=g)
+	{
+	    k+=r;
+	    a1=1;
+	    b-=r;
+	    g-=r;
+	}
+	
+	else if(g<=b&&g<=r)
+	{
+	    k+=g;
+	    a2=1;
+	    b-=g;
+	    r-=g;
+	}
+	else if(b<=r&&b<=g)
+	{
+	    k+=b;
+	    a3=1;
+	    r-=b;
+	    g-=b;
+	}
+	//cout<<a1<<" "<<a2<<" "<<a3<<endl;
+	//cout<<k<<endl;
+	if(a1==1)
+	{
+	    k+=(b+g+1)/2;
+	    
+	}
+	else if(a2==1)
+	{
+	   k+=(r+b+1)/2;
+	}
+	else if(a3==1)
+	{
+	    k+=(r+g+1)/2;
+	}
+	cout<<k<<endl;
+	return 0;
+}
+Language: C++
