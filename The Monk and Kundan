@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	int t;
+	cin>>t;
+	char s[1000],p[100];
+	strcpy(p,"abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	//cout<<p;
+	//gets(s);
+	while(t--)
+	{
+	    long long sum=0,k=0,m=0,i,j;
+	    scanf(" %[^\t\n]s",&s);
+	    //cout<<s;
+	    for(i=0;i<strlen(s);i++)
+	    {
+	        if(s[i]==' ')
+	        {
+	            m++;
+	            k=0;
+	        }
+	        else
+	        {
+	            
+	            sum+=k;
+	            k++;
+	        }
+	       // cout<<k<<endl;
+	        
+	        for(j=0;j<strlen(p);j++)
+	        {
+	            if(s[i]==p[j])
+	            {
+	         //       cout<<j<<"\n";
+	                sum+=j;
+	                break;
+	            }
+	        }
+	        
+	       // cout<<sum<<endl;
+	    }
+	    cout<<sum*(m+1)<<"\n";
+	    //puts(s);
+	    
+	}
+	return 0;
+}
+Language: C++
