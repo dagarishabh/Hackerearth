@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	long long int n,k;
+	cin>>n>>k;
+	long long int x[n],y[n],d[n],ans;
+	int i,j;
+	for(i=0;i<n;i++)
+	cin>>x[i];
+	for(i=0;i<n;i++)
+	cin>>y[i];
+	for(i=0;i<n;i++)
+	d[i]=x[i]*x[i]+y[i]*y[i];
+	sort(d,d+n);
+	ans=d[k-1];
+	ans=ceil(1.0*(sqrt(1.0*ans)));
+	cout<<ans<<endl;
+	return 0;
+}
+Language: C++
