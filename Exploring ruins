@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    char s[51],c;
+    cin>>s;
+    int i,l=strlen(s);
+    if(s[0]=='?'&&s[1]!='a')
+    s[0]='a';
+    else if(s[0]=='?'&&s[1]=='a')
+    s[0]='b';
+    c=s[0];
+    //cout<<s<<endl;
+    for(i=0;i<l-1;i++)
+    {
+        //cout<<s<<endl;
+        if(s[i]=='a'||s[i]=='b')
+        continue;
+        else if((s[i]=='?')&&(s[i-1]=='a'||s[i+1]=='a'))
+        {
+            s[i]='b';
+        }
+        else 
+        s[i]='a';
+    }
+    if(s[l-1]=='?'&&s[l-2]=='a')
+    s[l-1]='b';
+    else if(s[l-1]=='?'&&s[l-2]!='a')
+    s[l-1]='a';
+    cout<<s<<endl;
+	return 0;
+}
+Language: C++
