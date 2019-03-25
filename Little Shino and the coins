@@ -1,0 +1,39 @@
+#include <stdio.h>
+ 
+int main(void) {
+	int l=0,k,i,j,m,t,n,r=0,q[]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+	char s[10000],p[]={"abcdefghijklmnopqrstuvwxyz"};
+	scanf("%d",&t);
+	scanf("%s",&s);
+	for(i=0;s[i]!='\0';i++);
+	for(j=0;j<i;j++)
+	{
+	    for(k=j;k<i;k++)
+	    {
+	        for(m=0;m<26;m++)
+	        {
+	            if(s[k]==p[m])
+	            {
+	                q[m]=1;
+	                break;
+	            }
+	        }
+	        r=0;
+	        for(n=0;n<26;n++)
+	        r=r+q[n];
+	        if(r==t)
+	        {
+	            l++;
+	        }
+	        if(r>t)
+	        break;
+	        
+	    }
+	    for(n=0;n<26;n++)
+	        q[n]=0;
+	}
+	printf("%d\n",l);
+	return 0;
+}
+ 
+Language: C
